@@ -1,0 +1,45 @@
+{% extends "base2.html" %}
+{% block header %}
+<header>
+{% if bflag == "0" %}
+<h2>IITBombayX Superuser - Non-Blended</h2>
+{% elif bflag == "1" %}
+<h2>IITBombayX Superuser - Blended</h2>
+{% endif %}
+</header>
+{% endblock %}
+{% block body_block %}
+
+ <p><h2> Current Courses List </h2> </p>
+      <table  class="table" " style="width:100%;" align="left" >
+      <tr>
+        <th>Number</th><th>Name</th><th>Start Date</th><th>End Date</th>
+      </tr>
+
+      {% for i in currentcourselist %}
+      <tr>
+       <td><a href="/instructor_course_intro/{{i.0}}"> {{ i.0 }}</a></td>
+       <td >{{ i.1 }}</td>
+       <td style="width:100px;">{{ i.2}}</td>
+       <td style="width:100px;">{{ i.3}}</td>
+      </tr> 
+     {% endfor %}
+      </table>
+
+
+<p><h2> Archived Courses List </h2> </p>
+      <table  class="table" " style="width:100%;" align="left" >
+      <tr>
+        <th>Number</th><th>Name</th><th>Start Date</th><th>End Date</th>
+      </tr>
+
+      {% for i in archivedcourselist %}
+      <tr>
+       <td><a href="/instructor_course_intro/{{i.0}}"> {{ i.0 }}</a></td>
+       <td >{{ i.1 }}</td>
+       <td style="width:100px;">{{ i.2}}</td>
+       <td style="width:100px;">{{ i.3}}</td>
+      </tr> 
+     {% endfor %}
+      </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='raj.mech27@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='j_sm@rediffmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sudhashree@drmcet.ac');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='rk.ioinfo@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='Pravin.Wararkar@nmims.edu');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='deepu_nivas@gvpce.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='chkusumasrinivas@gvpce.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='mneelima@gvpce.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='chvenkanna@gvpce.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='vdharmarao@gvpce.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='Sateeme62@gvpce.ac.in');
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sanjay_kumar74@gvpce.ac.in');
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='principal@gvpce.ac.in');

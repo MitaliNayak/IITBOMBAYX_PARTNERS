@@ -1,0 +1,84 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block header %}
+<title>Blended Course Administrator</title>
+<header>
+<h2>Blended Course Administrator</h2>
+</header>
+{% endblock %}
+{% block body_block %}
+
+                {% if usertype == 9 or usertype == 0 %}
+                <h2>Support Administrator - Users</h2>
+                
+                        {% if errors %}
+                                <p style="color:red;"><h3 style="color:red;">{{ errors.0 }}</h3></p><br>
+                        {% endif %}
+                <div class="group group-form group-form-requiredinformation">
+                <table  cellspacing="5" cellpadding="5" border="1" class="table table-hover">
+                         <tr>
+                            <td><a href = "/registrationinterface/0" >User Registration</a></td>
+                            <td>Registration Interface for Participating Institutes, Program Coordinators and Teachers</td>       
+                        </tr>
+                         <tr>
+                            <td><a href = "/admineditprofile" >Update Users' Information </a></td>
+                            <td>Interface to Update Participating Institute Users' Profile </td>       
+                        </tr>
+                        <tr>
+                            <td><a href = "/pcheadmanager/" >Remove Institute Level Users</a></td>
+                            <td>Interface for Deactivation of Heads and Program Coordinators</td>       
+                        </tr>
+                       <tr>
+                            <td><a href = "/userweeklysession/" >System User Weekly Access Report</a></td>
+                            <td>Report for tracking user access to system on week basis.</td>       
+                        </tr>
+                 </table>       
+                     <h2>Support Administrator - Courses</h2>
+                
+                        {% if errors %}
+                                <p style="color:red;"><h3 style="color:red;">{{ errors.0 }}</h3></p><br>
+                        {% endif %}
+                <div class="group group-form group-form-requiredinformation">
+                <table  cellspacing="5" cellpadding="5" border="1" class="table table-hover">
+                                               <tr>
+                                <td><a href = "/allcourses/0/" >Course Details</a></td>
+                                <td>As seen by Teachers</td>
+                        </tr>
+           
+                         <tr>
+                            <td><a href = "/adminuploaderinfo/" >Students' Information</a></td>
+                            <td>Participating Students Information - Teachers' Point of View</td>
+                        </tr>
+                         <tr>
+                             <td><a href = "/allstudentinfo/" >All Students' Information</a></td>
+                            <td>Participating Students Information - for all Remote Centers.</td>       
+                        </tr>
+                        <tr>
+                             <td><a href = "/invited_userlist/0/" >Invited Participants Status</a></td>
+                             <td>Invited Participants Information -at course level</td>       
+                        </tr>
+                       
+                 </table>
+                 {% endif %}
+                {% if usertype == 9 or usertype == 0 or usertype == 10 %}
+                     <h2>Reports Manager</h2>
+                    {% for i in report_list %}
+                          <h3>{{i.0}} </h3>
+                          <br>
+                          <table  cellspacing="5" cellpadding="5" border="1" class="table table-hover">
+                           {% for j in i.1 %}
+                           <tr> 
+                          
+                           <td><a href = "/blendedadmin/{{j.0}}" >{{ j.1 }}</a></td>
+                           <td>{{j.2}}</td>
+                           </tr>
+                           {% endfor %}
+                         </table>
+                    {% endfor %}
+                {% endif %}
+           
+                </div>
+
+                
+{% endblock %}
+

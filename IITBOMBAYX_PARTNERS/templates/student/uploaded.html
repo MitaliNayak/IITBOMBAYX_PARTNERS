@@ -1,0 +1,86 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+
+
+
+<head>
+<style>
+
+   table {border-collapse:collapse; table-layout:fixed; width:310px;}
+   table td {border:solid 1px #fab; width:100px; word-wrap:break-word;}
+  
+</style>
+
+  <title>Students Information Report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+ <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>-->
+</head>
+<body>
+{% block header %}
+<header><h2>{{fname}} Status Report  ({{coursename}})   </h2></header>
+<table class="table table-hover">
+
+ 
+    <tr><td>Total Number of Students Tagged in your Class:  {{totalrecords}} </td></tr>
+
+<tr><td>No. of Students Tagged: {{validcount}}</td><td><a href="/downloadcsv/1">Students Tagged Currently</a></td></tr>
+<tr><td>No. of Students Tagged Previously: {{ignorecount}}</td><td> <a href="/downloadcsv/2">Students Tagged Previously</a></td></tr>
+<tr><td>No. of Students not validated by the system: {{invalidcount}}</td><td> <a href="/downloadcsv/3">Students Not Validated</a></td></tr>
+
+</table>
+{% endblock %}
+
+{% block body_block %}
+
+  
+{% if invalidcount > 0 %}
+<div class="container">
+<BR>
+<h4><center><B>Students Not Validated</B></center></h4>
+<br>
+<div>
+  
+  <table border=1 WIDTH="100%">
+    {% if errorreport %}	
+
+      <tr>
+        <th >SNo.</th>
+        <th >Roll No</th>
+        <th >Username</th>
+        <th >Email</th>
+        <th >Message</th>
+
+      </tr>
+
+
+
+        {% for error  in errorreport %}
+          <tr>
+            <td >{{error.recordno}}</td>
+            <td >{{error.roll_no}}</td>
+            <td >{{error.username}}</td>
+            <td >{{error.email}}</td>
+            <td >{{error.error_message}}</td>
+            
+          </tr>
+        {% endfor %}
+
+{% else %}
+<tr align="center"> No Error Records</tr>
+{% endif %}
+  </table>
+</div>
+</div>
+{% endif %}
+
+
+{% endblock %}
+{% block my_block %}
+{% endblock %}
+
+
+
+

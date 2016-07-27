@@ -1,0 +1,12 @@
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='disha.914@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='msj_sm@rediffmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='Sudhashree@drmcet.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='shailendra.shende@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='s12_kale@yahoo.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sachinjain98440@rediffmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='amolgaikwad.ag@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='pgj.ycce@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='yj999@ymail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='samir.ajani@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='schavhansushil@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='mayurkhante786@gmail.com');

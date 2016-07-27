@@ -1,0 +1,222 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block header %}
+<header ><h2 align=center>Deactivation of Institute Level Users </font></h2></header>
+ <script>
+            $(document).ready(function(){
+                  //begin
+                  $('#Institute').on('change', function() {   // check for changes
+                  $('#headpc option:eq(0)').attr('selected','selected');      
+                  $("#name").empty();
+                  $("#strrole").empty();
+    
+
+$.ajax({
+           type: "GET",
+           url:"/instituteheadpc",
+           data:{id: $('#Institute').val()},
+           contentType: "application/json; charset=utf-8",
+           datatype: 'json',
+           success: function(result)
+                 {
+                    console.log(result);
+ 
+                    var listItems= "<option value='noheadpc'>" + "-- Select the head or Pc -- " + "</option>";
+                    var teams =  result[1] ;
+                    var instiname='<label for="Institute" id="instiname">'+result[0]+'</label>';
+                    $("#instiname").html(instiname);
+                     console.log(teams);
+                    if (teams.length==0){
+                                            alert(" Selected Institute has no Head or Pc !!!");
+                                            listItems = "<option value='noheadpc'>" + " -- " + "</option>";
+                                            $("#headpc").html(listItems);
+                    }
+                    else{
+                    for (var key in teams){
+                         
+                       listItems += "<option value='" +key+ "'>" + teams[key]+ "</option>";
+                       $("#headpc").html(listItems);
+
+                 }
+                 }
+                 $('#message').empty(); 
+            },
+        });
+
+
+                  });
+              //end
+
+//newbegin
+
+                  $('#headpc').on('change', function() {   // check for changes
+                 $('#name').empty();         
+                 $('#strrole').empty();
+
+$.ajax({
+           type: "GET",
+           url:"/userinfo",
+           data:{role_id:$('#headpc').val(),iid: $('#Institute').val(),hepcid:$('#headpc option:selected').text()},
+           contentType: "application/json; charset=utf-8",
+           datatype: 'json',
+           success: function(result)
+                 {
+                    console.log(result);
+                    var pname='<label for="Institute" id="instiname"><b>Name: </b>'+result[0]+'</label>';
+                    $("#name").html(pname);
+                    var prole='<label for="Institute" id="instiname"><b>Role: </b>'+result[1]+'</label>';
+                    $("#strrole").html(prole);
+
+                    
+
+            },
+        });
+
+                  });
+
+//newend
+
+
+//start
+ $('#form').submit(function(){ 
+                                         if($('#headpc').val()=="noheadpc")
+                                         {
+                                            alert("Select a different Institute");
+                                            document.form.action ="";
+                                         }
+                                         else
+                                         {
+                                            var headpc = $( "#headpc option:selected" ).text()
+                                             $('<input >').attr('type', 'hidden')
+                                                          .attr('name', "headpc_name")
+                                                          .attr('value', headpc)
+                                                          .appendTo('#form');
+                                         }  return true;
+                               });
+//end
+
+//start
+  $( document ).ready(function() 
+  {
+      $('#instiname').empty(); 
+      $('#name').empty();
+      $('#strrole').empty(); 
+      $('#headpc option:eq(0)').attr('selected','selected');
+      $('#Institute option:eq(0)').attr('selected','selected');
+  });
+//end
+
+
+
+            })(this);
+         
+        </script>
+
+
+<style>
+ th, td { white-space: nowrap; }
+    div.dataTables_wrapper {
+        width: 1050px;
+        
+        margin-right: 0.5em;
+    }
+</style>
+
+{% endblock %}
+{% block body_block %}
+<div class ="row" align="center">
+  <font color=red>{{error_message}}</font>
+</div>
+<div id = "message" class ="row" align="center">
+  <font color=red>{{success_message}}</font>
+</div>
+<br>
+<br>
+<div >
+<form id = form action="/pcheadmanager/" method="POST">
+{% csrf_token %}
+
+<div class ="row">
+<div class="col-xs-6">
+<b>RCID</b>
+</div>
+<div class="col-xs-6">
+<b>Email</b>
+</div>
+
+</div>
+</br>
+<div class ="row">
+<div class="col-xs-4">
+
+<select id="Institute" name="Institute"  style="width:200px;">
+<option value="noinstitute"  >-- Select the Institute -- </option>
+                {% for institute in approvinstitute %}
+      
+
+<option value="{{ institute.1 }}" >{{ institute.0 }}</option>
+
+	{% endfor %}
+
+              </select>
+
+</div>
+
+
+
+<div class="col-xs-4">
+<select id="headpc" name="headpc" style="width:250px;">
+	<option value="">-- Select the Head or Pc --</option>
+           
+                {% for c in instiheadpc %}
+<option value="{{ c }}" >{{ c }}</option>
+	{% endfor %}
+              </select></div>
+
+
+
+
+</div>
+
+<div class ="row">
+<div class="col-xs-4">
+<label for="Institute" id="instiname">{{instiname}}</label>
+</div>
+<div class="col-xs-4">
+
+<label for="name" id="name">{{name}}</label>
+</div>
+<div class="col-xs-4">
+
+<label for="strrole" id="strrole">{{strrole}}</label>
+
+</div>
+</div>
+<br>
+<br>
+<div class ="row" align="center">
+
+<div class="col-xs-4"></div><div class="col-xs-4">
+<input type="submit" id = submitbtn value="Deactivate"  name="deactivateheadpc" onclick="return confirm('Are you sure want to Deactivate ?');">
+</div>
+<div class="col-xs-4"></div>
+
+</div>
+<br>
+<br>
+
+<br>
+<br>
+
+</div>
+</form>  
+ </div>
+
+<br>
+<br>
+
+
+
+</br>
+
+{% endblock %}

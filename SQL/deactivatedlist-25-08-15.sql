@@ -1,0 +1,9 @@
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='principal@sonatech.ac.in');
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sathyamoorthi@sonatech.ac.in');
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='principal@svpec.edu.in');
+update SIP_institutelevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='suraj.vsk@gmail.com');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='Baby_v@vnrvjiet.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='k_vinod@blr.amrita.edu');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sarkarc@nitrkl.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='spg.comp@coep.ac.in');
+update SIP_courselevelusers set roleid=-1*roleid where  personid_id = (select id from SIP_personinformation where email ='sng.comp@coep.ac.in');

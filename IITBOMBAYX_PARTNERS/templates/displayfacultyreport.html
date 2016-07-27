@@ -1,0 +1,63 @@
+{% load staticfiles %}
+{% block header %}
+{% endblock %}
+{% block body_block %}
+</script>
+
+
+<header><center><h2><font color="#F7691F"><u>{{report_name}}</u></font></h2></center></header>
+<br><table style="width:90%" cellspacing="5" cellpadding="5" align="center"><tr><td align="left"><a href="#" class="export">Download CSV</a></td><td align="right"><a href="/instructor_course_report/{{course}}">Reports Home</a></td></tr></table>
+
+
+<div id="dvData">
+
+
+<table cellspacing="5" cellpadding="5" border="1" style="width:90%" align="center" class="table table-hover" >
+<tr>
+{% for title in heading %}
+<th>{{title}}
+</th>
+{% endfor %}
+</tr>
+ {% if usertype == -2 %}
+{% for row in reports %}
+<tr>
+{% for col in row  %}
+       <td>{{col}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+{% else %}
+{% for row in reports %}
+<tr>
+ {% if reptype == 'C' %}
+ 
+{% for col in row.res  %}
+ {% if forloop.counter == 4 %}
+        <td>{{col}}</td>
+ {% else %}
+  <td> {{col}} </td>
+{% endif %}
+{% endfor %}
+{% else %}  
+{% for col in row  %}
+    {% if reptype == 'A' and forloop.counter == 3 %}
+           <td>{{col}}</td>
+    {% elif reptype == 'B' and forloop.counter == 4 and forloop.parentloop.counter == 1 %}
+            <td>{{col}}</td>
+     {% elif reptype == 'B' and forloop.counter == 4 and forloop.parentloop.counter == 2 %}
+            <td>{{col}}</td>
+      {% else %}
+            <td>{{col}}</td>
+      {% endif %}
+
+{% endfor %}
+{% endif %}
+</tr>
+
+{% endfor %}
+{% endif %}
+</table>
+
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block header %}
+<header><h2>Account Page</h2></header>
+
+
+{% endblock %}
+{% block body_block %}
+  <article class="course" >
+  <section class="info" >{% if usertype == 9 or  usertype == 10  %}
+
+<table   cellspacing="0" width="100%"  >  
+  
+   
+
+    <tr ><td > <a href="/blendedadmin_home/" class="enter-course">Blended Course Administrator</a><br><br><br><br></td>
+          
+      </table>
+
+{% else %}
+<table   cellspacing="0" width="100%"  >  
+    <tr style="float:right;">
+     
+     <td ><a href="/iitbx/managerhome/" class="enter-course">IITBombayX Manager</a><br><br><br><br></td>
+    </tr>
+  
+   <tr>
+ <td> <a href="/home/0/" class="enter-course">Non-Blended Course Manager</a><br><br><br><br></td>
+ <td> <a href="/home/1/" class="enter-course">Blended Course Manager</a><br><br><br><br></td>
+ </tr>  
+
+<tr>
+
+</tr>
+   
+
+    <tr ><td > <a href="/blendedadmin_home/" class="enter-course">Blended Course Administrator</a><br><br><br><br></td>
+<td> <a href="/get_multi_roles/" class="enter-course">Blended MOOCs</a><br><br><br><br></td></tr>
+          
+      </table>
+    </section>    
+     </article>
+{% endif %}
+      {% endblock %}      
+            
+
+
+
+
+
+
+
+
