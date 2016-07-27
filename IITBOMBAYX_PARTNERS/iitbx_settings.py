@@ -27,8 +27,8 @@ from managerapp.models import *
 
 mysql_host="localhost"
 #please enter mysq username password
-user="iitbxblended"
-passwd="11tbx@123"
+user="########"
+passwd="######"
 mysql_schema="edxapp"
 mongodb='mongodb://localhost:27017/'
 courses=["i4x/IITBombayX/CS101.1xA15/2015_T1","i4x/IITBombayX/ME209xA15/2015_T1","i4x/IITBombayX/EE210.1xA15/2015_T1","i4x/IITBombayX/CS101.1xS16/2016_T1","i4x/IITBombayX/EE210xS16/2016_T1","i4x/IITBombayX/ME209xS16/2016_T1","i4x/IITBombayX/HS791xS16/2016_T1","i4x/IITBombayX/SKANI101xA/2016_T2","i4x/IITBombayX/HS791xA16/2016-17","i4x/IITBombayX/EE210xA16/2016-17","i4x/IITBombayX/ME209xA16/2016-2017"]
